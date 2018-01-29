@@ -1,12 +1,13 @@
 var clientModule = require("../../../../client");
-var sensor = require("../../../../entities/client/sensorManager");
+var sensor = require("../../../..//clientapi/sensorManager");
 var client = new clientModule.Client({}); 
 
 var sensorManager = new sensor.SensorManager({
     "client": client
 });
 
- var sensorId = request.parameters["id"];
+ //var sensorId = request.parameters["id"];
+ var sensorId = "e451a094-eb05-428d-90f4-b63f4e07535b"
 
 try {
     return  sensorManager.getSensor({

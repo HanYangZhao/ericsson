@@ -9,6 +9,7 @@ var http = require("http");
 function Client(dto) {
   if(!dto) dto = {};
   this.token = dto.token ? dto.token : config.token;
+  this.devicenetwork = dto.devicenetwork ? dto.devicenetwork : config.devicenetwork;
 }
 
 /**
@@ -52,7 +53,7 @@ Client.prototype._callApi = function(reqparams) {
 
     params.url = params.url.indexOf("http") > -1 ? params.url : config.apiUrl + "/" +  config.apiVer + params.url;
     params.headers["Authorization"] =  "Bearer " + this.token
-
+    params.headers["X-DeviceNetwork"] = this.devicenetwork
     console.log(JSON.stringify(params));
     var response = http.request(params);
 

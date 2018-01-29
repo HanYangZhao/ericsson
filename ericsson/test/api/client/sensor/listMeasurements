@@ -6,14 +6,15 @@ var sensorManager = new sensor.SensorManager({
     "client": client
 });
 
- var sensorId = request.parameters["id"];
+ //var sensorId = request.parameters["id"];
+ var sensorId = "e451a094-eb05-428d-90f4-b63f4e07535b"
 
 try {
     var sensor = sensorManager.getSensor({
         "Id": sensorId
     });
-    
-    return sensor.listMeasurements();
+    console.log(sensor.listMeasurements()[1].t);
+    return "te"
     
 }catch (ex){
     return ex;
